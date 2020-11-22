@@ -32,8 +32,8 @@ client.on("message", async message => {
         let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
         if(!kUser) return message.channel.send("Can't find user!");
         let kReason = args.join(" ").slice(22);
-        if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You are lacking the permissions `Manage Messages`!");
-        if(kUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Thas person cannot be kicked!");
+        if(!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send("You are lacking the permissions `Kick Members`!");
+        if(kUser.hasPermission("KICK_MEMBERS")) return message.channel.send("Thas person cannot be kicked!");
 
         message.guild.member(kUser).kick(kReason)
         message.channel.send("User was kicked!");
@@ -44,8 +44,8 @@ client.on("message", async message => {
         let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
         if(!bUser) return message.channel.send("Can't find user!");
         let bReason = args.join(" ").slice(22);
-        if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You are lacking the permissions `Manage Messages`!");
-        if(bUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Thas person cannot be kicked!");
+        if(!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("You are lacking the permissions `Ban Members`!");
+        if(bUser.hasPermission("BAN_MEMBERS")) return message.channel.send("Thas person cannot be kicked!");
 
         message.guild.member(bUser).ban(bReason)
         message.channel.send("User was banned!");
